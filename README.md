@@ -60,3 +60,9 @@ This repository is memo golang codes for me.
 
 * 構造体への参照私、値渡し
   * [embed.go](https://github.com/hirolovesbeer/golang-memo/blob/master/embed.go)
+
+* RabbitMQを使ったRPC client
+  * [rabbitmq-rpc-echo-client.go](https://github.com/hirolovesbeer/golang-memo/blob/master/rabbitmq-rpc-echo-client.go)
+
+* RabbitMQを使ったRPC server
+  * [rabbitmq-rpc-echo-server.go](https://github.com/hirolovesbeer/golang-memo/blob/master/rabbitmq-rpc-echo-server.go)
