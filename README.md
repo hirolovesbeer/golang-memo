@@ -58,7 +58,7 @@ This repository is memo golang codes for me.
 * 埋め込み構造体
   * [embed.go](https://github.com/hirolovesbeer/golang-memo/blob/master/embed.go)
 
-* 構造体への参照私、値渡し
+* 構造体への参照渡し、値渡し
   * [embed.go](https://github.com/hirolovesbeer/golang-memo/blob/master/embed.go)
 
 * RabbitMQを使ったRPC client
