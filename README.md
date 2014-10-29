@@ -66,3 +66,6 @@ This repository is memo golang codes for me.
 
 * RabbitMQを使ったRPC server
   * [rabbitmq-rpc-echo-server.go](https://github.com/hirolovesbeer/golang-memo/blob/master/rabbitmq-rpc-echo-server.go)
+
+* Jsonデータをユーザ定義構造体へUnmarshalする
+  * [json.go](https://github.com/hirolovesbeer/golang-memo/blob/master/json.go)
