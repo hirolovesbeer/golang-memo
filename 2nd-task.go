@@ -32,6 +32,7 @@ func main() {
 func server(conn net.Conn) {
 	// send to 3rd task
 	conn2, _ :=net.Dial("tcp", "127.0.0.1:8082")
+	defer conn2.Close()
 
 	r := bufio.NewReader(conn)
 	for {
@@ -63,4 +64,6 @@ func server(conn net.Conn) {
 		// conn2.Write([]byte(out.String() + "\n"))
 		conn2.Write([]byte(out.String()))
 	}
+
+	defer conn.Close()
 }

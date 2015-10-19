@@ -54,4 +54,6 @@ func server(conn net.Conn) {
 		// conn.Write([]byte("from server\n"))
 		conn.Write([]byte(out.String() + "\n"))
 	}
+
+	defer conn.Close()
 }
