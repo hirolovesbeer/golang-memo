@@ -8,15 +8,28 @@ import (
 	"io"
 	"strings"
 	"bytes"
+	"log"
 )
 
 func main() {
 	fmt.Println("Launching server...")
 
-	ln, _ := net.Listen("tcp", ":8082")
+	ln, err := net.Listen("tcp", ":8082")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	conn, _ := ln.Accept()
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			log.Fatal(err)
+		}
 
+		go server(conn)
+	}
+}
+
+func server(conn net.Conn) {
 	r := bufio.NewReader(conn)
 	for {
 		// wcCmd := exec.Command("/usr/bin/wc", "-l")
@@ -42,4 +55,3 @@ func main() {
 		conn.Write([]byte(out.String() + "\n"))
 	}
 }
-

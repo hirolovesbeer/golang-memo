@@ -5,24 +5,31 @@ import (
 	"os/exec"
 	"net"
 	"bufio"
-//	"io/ioutil"
 	"io"
 	"strings"
 	"bytes"
+	"log"
 )
 
 func main() {
-/*
-	grepCmd := exec.Command("/usr/bin/grep", "abe")
-	grepIn, _ := grepCmd.StdinPipe()
-	grepOut, _ := grepCmd.StdoutPipe()
-*/
-
 	fmt.Println("Launching server...")
 
-	ln, _ := net.Listen("tcp", ":8081")
-	conn, _ := ln.Accept()
+	ln, err := net.Listen("tcp", ":8081")
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		go server(conn)
+	}
+}
+
+func server(conn net.Conn) {
 	// send to 3rd task
 	conn2, _ :=net.Dial("tcp", "127.0.0.1:8082")
 
